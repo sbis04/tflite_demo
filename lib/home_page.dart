@@ -50,6 +50,12 @@ class _HomePageState extends State<HomePage> {
         );
         break;
 
+      case yognet:
+        res = await Tflite.loadModel(
+          model: "assets/converted_model.tflite",
+        );
+        break;
+
       default:
         res = await Tflite.loadModel(
           model: "assets/ssd_mobilenet.tflite",
@@ -98,6 +104,10 @@ class _HomePageState extends State<HomePage> {
                   RaisedButton(
                     child: const Text(posenet),
                     onPressed: () => onSelect(posenet),
+                  ),
+                  RaisedButton(
+                    child: const Text(yognet),
+                    onPressed: () => onSelect(yognet),
                   ),
                 ],
               ),
